@@ -41,8 +41,6 @@ body {
     border: 2px solid #007ACC;
     padding: 10px 50px;
     border-radius: 10px;
-    position: relative;
-    overflow: hidden;
 }
 
 .btn span {
