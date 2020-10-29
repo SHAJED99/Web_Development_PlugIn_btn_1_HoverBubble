@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="./style.css">
+
+    <title>btn-1</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <a class="btn" href="#"><span></span>Button</a>
+            <a class="btn" href="#"><span></span>Button</a>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(btn_hover_bubble_effect(this, ".btn"))
+
+        function btn_hover_bubble_effect(e, btn_class_name) {
+            $(btn_class_name).on('mouseenter', function(e) {
+                x = e.pageX - $(this).offset().left;
+                y = e.pageY - $(this).offset().top;
+                w = $(this).outerWidth();
+                h = $(this).outerHeight();
+                spn = $(this).find('span');
+
+                if (w > h) {
+                    spn.css({
+                        'width': w * 3,
+                        'height': w * 3,
+                    });
+                } else {
+                    spn.css({
+                        'width': h * 3,
+                        'height': h * 3,
+                    });
+                };
+                spn.css({
+                    top: y,
+                    left: x,
+                });
+            });
+
+            $(btn_class_name).on('mouseout', function(e) {
+                x = e.pageX - $(this).offset().left;
+                y = e.pageY - $(this).offset().top;
+                $(this).find('span').css({
+                    top: y,
+                    left: x,
+                    'width': '0px',
+                    'height': '0px',
+                })
+            });
+
+            $(btn_class_name).find('span').css({
+                'position': 'absolute',
+                'width': '0px',
+                'height': '0px',
+                'transform': 'translate(-50%, -50%)',
+                'border-radius': '100%',
+                'transition': 'all 0.5s',
+                'z-index': '-1',
+            })
+        }
+    </script>
+</body>
+
+</html>
