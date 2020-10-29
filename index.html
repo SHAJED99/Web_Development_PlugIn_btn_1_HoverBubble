@@ -25,6 +25,10 @@
         $(document).ready(btn_hover_bubble_effect(this, ".btn"))
 
         function btn_hover_bubble_effect(e, btn_class_name) {
+            $(btn_class_name).css({
+                'position': 'relative',
+                'overflow': 'hidden',
+            })
             $(btn_class_name).on('mouseenter', function(e) {
                 x = e.pageX - $(this).offset().left;
                 y = e.pageY - $(this).offset().top;
